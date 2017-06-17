@@ -1,4 +1,4 @@
-FROM jenkins
+FROM jenkinsci/jenkins 
 COPY plugins.txt /usr/share/jenkins/ref/plugins.txt
 COPY executors.groovy /usr/share/jenkins/ref/init.groovy.d/executors.groovy
 USER root
