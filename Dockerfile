@@ -18,7 +18,13 @@ RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y aptitude
  oracle-java9-unlimited-jce-policy \
  phing php-cli \
  scala \
- scala-doc
+ scala-doc \
+ doxygen \
+ doxygen-doc \
+ doxygen-latex \
+ graphviz \
+ graphviz-doc \
+ gsfonts
 USER jenkins
 ENV CURL_CONNECTION_TIMEOUT 60
 RUN /usr/local/bin/install-plugins.sh < /usr/share/jenkins/ref/plugins.txt
