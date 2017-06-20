@@ -2,7 +2,8 @@ FROM jenkinsci/jenkins
 COPY plugins.txt /usr/share/jenkins/ref/plugins.txt
 COPY executors.groovy /usr/share/jenkins/ref/init.groovy.d/executors.groovy
 USER root
-RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y aptitude && aptitude update && DEBIAN_FRONTEND=noninteractive aptitude --with-recommends full-upgrade -y && DEBIAN_FRONTEND=noninteractive aptitude --with-recommends install -y \
+RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y aptitude && aptitude update && DEBIAN_FRONTEND=noninteractive aptitude --with-recommends full-upgrade -y
+RUN DEBIAN_FRONTEND=noninteractive aptitude --with-recommends install -y \
  ant \
  binfmt-support \
  default-jdk-doc \
