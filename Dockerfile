@@ -13,7 +13,8 @@ RUN DEBIAN_FRONTEND=noninteractive aptitude --with-recommends -y install \
  oracle-java8-installer \
  oracle-java9-set-default \
  oracle-java9-unlimited-jce-policy \
- phing php-cli \
+ phing \
+ php-cli \
  scala \
  scala-doc \
  doxygen \
