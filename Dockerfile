@@ -1,20 +1,18 @@
 FROM torsknod/my-jenkins-docker-pre 
 USER root
+# TODO docker-compose oracle-java9-installer oracle-java9-set-default oracle-java9-unlimited-jce-policy php-cli
 RUN DEBIAN_FRONTEND=noninteractive aptitude --with-recommends -y install \
  ant \
  binfmt-support \
- docker-compose \
+ default-jdk \
  docker.io \
  git \
  gradle \
  gradle-doc \
  maven \
  mercurial \
- oracle-java8-installer \
- oracle-java9-set-default \
- oracle-java9-unlimited-jce-policy \
  phing \
- php-cli \
+ php5-cli \
  scala \
  scala-doc \
  doxygen \
