@@ -1,7 +1,20 @@
 FROM torsknod/my-jenkins-docker-pre 
 USER root
 # TODO docker-compose oracle-java9-installer oracle-java9-set-default oracle-java9-unlimited-jce-policy php-cli
-RUN DEBIAN_FRONTEND=noninteractive aptitude --with-recommends -y install \
+RUN apt-get update \
+ && DEBIAN_FRONTEND=noninteractive apt-get install -y \
+ apt-transport-https \
+ aptitude \
+ ca-certificates-java \
+ software-properties-common \
+ && apt-add-repository -y non-free \
+ && apt-add-repository -y contrib \
+ && apt-key adv --keyserver hkp://p80.pool.sks-keyservers.net:80 --recv-keys \
+ 58118E89F3A912897C070ADBF76221572C52609D \
+ && apt-add-repository -y "deb https://apt.dockerproject.org/repo debian-jessie main" \
+ && aptitude update \
+ && DEBIAN_FRONTEND=noninteractive aptitude --with-recommends full-upgrade -y \
+ && DEBIAN_FRONTEND=noninteractive aptitude --with-recommends -y install \
  ant \
  binfmt-support \
  default-jdk \
