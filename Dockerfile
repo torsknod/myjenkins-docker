@@ -1,4 +1,6 @@
-FROM torsknod/my-jenkins-docker-pre 
+FROM jenkinsci/jenkins 
+COPY plugins.txt /usr/share/jenkins/ref/plugins.txt
+COPY executors.groovy /usr/share/jenkins/ref/init.groovy.d/executors.groovy
 USER root
 # TODO docker-compose oracle-java9-installer oracle-java9-set-default oracle-java9-unlimited-jce-policy php-cli
 RUN apt-get update \
@@ -35,3 +37,5 @@ RUN apt-get update \
  graphviz-doc \
  gsfonts
 USER jenkins
+ENV CURL_CONNECTION_TIMEOUT 60
+RUN /usr/local/bin/install-plugins.sh < /usr/share/jenkins/ref/plugins.txt
